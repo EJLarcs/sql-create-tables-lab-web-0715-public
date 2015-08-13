@@ -1,4 +1,5 @@
 require_relative 'environment'
+# require 'sqlite3'
 
 class SQLRunner
 
@@ -10,9 +11,9 @@ class SQLRunner
 
   def self.make_methods
     COMMANDS.each do |command|
-      define_method("execute_sql_#{command}") do 
+      define_method("execute_sql_#{command}") do
         sql = File.read("lib/#{command}.sql")
-        execute_sql(sql) 
+        execute_sql(sql)
       end
     end
   end
